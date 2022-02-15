@@ -15,6 +15,8 @@ public class LoginController {
     // 映射请求，GET http://localhost:8080/login
     @RequestMapping("/login")
     public Object login(@RequestParam("userinfos[]")String[] userinfos){
+        for(Object userinfo:userinfos)
+            System.out.println(userinfo);
         User result = userService.login_check(userinfos[0], userinfos[1]);
         // 查询成功（账号密码正确）
         if(result != null){
