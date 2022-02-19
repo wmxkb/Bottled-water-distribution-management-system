@@ -8,6 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
     // 方法名要和xml文件id一致
     public User login_check(String username, String password);
-
+    public int register(String username, String password);
 
 }

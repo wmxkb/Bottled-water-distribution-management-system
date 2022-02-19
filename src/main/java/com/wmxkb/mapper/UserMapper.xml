@@ -7,6 +7,12 @@
 <!-- 用了Mapper接口代理方法开发-->
 <!-- 映射文件中的namespace属性值改为mapper接口UserMapper的完整包名-->
 <mapper namespace="com.wmxkb.mapper.UserMapper">
+
+    <!-- 写入数据-->
+    <insert id="register" >
+        insert into user(username , password)VALUES(#{param1}, #{param2})
+    </insert>
+
     <!-- resultType属性指定结果的类型 -->
     <select id="login_check"  resultType="com.wmxkb.entity.User" >
         select userid from user where username =#{param1} and password =#{param2}

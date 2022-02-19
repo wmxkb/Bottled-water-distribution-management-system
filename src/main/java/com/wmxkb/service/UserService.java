@@ -13,4 +13,8 @@ public class UserService {
         return this.userMapper.login_check(username, password);
     }
 
+    public int register(String username, String password){
+        return  this.userMapper.register(username, password);
+    }
+
 }

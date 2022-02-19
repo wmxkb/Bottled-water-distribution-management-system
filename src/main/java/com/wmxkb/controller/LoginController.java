@@ -28,8 +28,8 @@ public class LoginController {
     }
 
     @RequestMapping("/register")
-    public Object login(@RequestParam("username")String[] username, @RequestParam("password")String[] password){
-
+    public Object login(@RequestParam("username")String username, @RequestParam("password")String password){
+        int result = userService.register(username, password);
         // 查询成功（账号密码正确）
         if(result != null){
             System.out.println(userinfos[0] + "register success");
