@@ -29,15 +29,15 @@ public class LoginController {
 
     @RequestMapping("/register")
     public Object login(@RequestParam("username")String username, @RequestParam("password")String password){
-        int result = userService.register(username, password);
-        // 查询成功（账号密码正确）
-        if(result != null){
-            System.out.println(userinfos[0] + "register success");
-            return 0;
-            // 查询失败（null）
-        }else{
-            System.out.println(userinfos[0] + "register false");
-            return 1;
+        int result;
+        try {
+            result = userService.register(username, password);
+            System.out.println(username + "register success");
+            result = 0;
+        }catch (Exception e){
+            result = 1;
+            System.out.println(password + "register false");
         }
+        return result;
     }
 }
