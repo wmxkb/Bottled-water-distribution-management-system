@@ -18,9 +18,25 @@ public class LoginController {
         User result = userService.login_check(userinfos[0], userinfos[1]);
         // 查询成功（账号密码正确）
         if(result != null){
+            System.out.println(userinfos[0] + "login success");
             return 0;
-        // 查询失败（null）
+            // 查询失败（null）
         }else{
+            System.out.println(userinfos[0] + "login false");
+            return 1;
+        }
+    }
+
+    @RequestMapping("/register")
+    public Object login(@RequestParam("username")String[] username, @RequestParam("password")String[] password){
+
+        // 查询成功（账号密码正确）
+        if(result != null){
+            System.out.println(userinfos[0] + "register success");
+            return 0;
+            // 查询失败（null）
+        }else{
+            System.out.println(userinfos[0] + "register false");
             return 1;
         }
     }
