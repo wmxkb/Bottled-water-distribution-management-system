@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性相当于映射文件的名称 属性值任意-->
+<!-- 用了Mapper接口代理方法开发-->
+<!-- 映射文件中的namespace属性值改为mapper接口UserMapper的完整包名-->
+<mapper namespace="com.wmxkb.mapper.Water_infosMapper">
+
+<!--    &lt;!&ndash; 写入数据&ndash;&gt;-->
+<!--    <insert id="register" >-->
+<!--        insert into user(username , password, userid)VALUES(#{param1}, #{param2}, #{param3})-->
+<!--    </insert>-->
+
+    <!-- resultType属性指定结果的类型 -->
+    <!--  指定位置和楼层查找  -->
+    <select id="selectBylocationandfloor"  resultType="com.wmxkb.entity.Water_infos" >
+        select * from water_infos where location =#{param1} and floor =#{param2}
+    </select>
+    <!--  指定位置查找  -->
+    <select id="selectBylocation" resultType="com.wmxkb.entity.Water_infos">
+        select  bigWater, smallWater, floor  from water_infos where location = #{param1}
+    </select>
+
+</mapper>

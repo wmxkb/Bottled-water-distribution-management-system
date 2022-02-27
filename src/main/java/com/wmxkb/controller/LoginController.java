@@ -28,10 +28,10 @@ public class LoginController {
     }
 
     @RequestMapping("/register")
-    public Object login(@RequestParam("username")String username, @RequestParam("password")String password){
+    public Object login(@RequestParam("username")String username, @RequestParam("password")String password, @RequestParam("userid")String userid){
         int result;
         try {
-            result = userService.register(username, password);
+            result = userService.register(username, password, userid);
             System.out.println(username + "register success");
             result = 0;
         }catch (Exception e){

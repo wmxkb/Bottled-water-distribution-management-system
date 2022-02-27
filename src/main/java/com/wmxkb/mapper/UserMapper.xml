@@ -10,7 +10,7 @@
 
     <!-- 写入数据-->
     <insert id="register" >
-        insert into user(username , password)VALUES(#{param1}, #{param2})
+        insert into user(username , password, userid)VALUES(#{param1}, #{param2}, #{param3})
     </insert>
 
     <!-- resultType属性指定结果的类型 -->
