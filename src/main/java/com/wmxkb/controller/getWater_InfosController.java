@@ -1,9 +1,8 @@
 package com.wmxkb.controller;
 
 
-import com.wmxkb.entity.Water_infos;
-import com.wmxkb.mapper.Water_infosMapper;
-import com.wmxkb.service.Water_infosService;
+import com.wmxkb.entity.water_Infos;
+import com.wmxkb.service.water_InfosService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,15 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 // 扫描映射（Mapper）
 @MapperScan("com.wmxkb.mapper")
-public class getWater_infosController {
+public class getWater_InfosController {
 
     @Autowired
-    private Water_infosService water_infosService;
+    private water_InfosService water_infosService;
 
     // 映射请求，GET http://localhost:8080/login
 //    @RequestMapping("/getWater_info")
@@ -37,7 +35,7 @@ public class getWater_infosController {
          System.out.println(location);
          System.out.println(water_infosService.selectBylocation(location));
 
-        List<Water_infos> resultW = water_infosService.selectBylocation(location);
+        List<water_Infos> resultW = water_infosService.selectBylocation(location);
 //        String result = "{'bigWater':'" + resultW.getBigWater() + "' , 'smallWater': '" + resultW.getSmallWater() +
 //                "'}";
 //        System.out.println(resultW);

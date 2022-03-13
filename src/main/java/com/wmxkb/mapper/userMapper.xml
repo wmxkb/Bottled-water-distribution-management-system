@@ -6,7 +6,7 @@
 <!-- namespace属性相当于映射文件的名称 属性值任意-->
 <!-- 用了Mapper接口代理方法开发-->
 <!-- 映射文件中的namespace属性值改为mapper接口UserMapper的完整包名-->
-<mapper namespace="com.wmxkb.mapper.UserMapper">
+<mapper namespace="com.wmxkb.mapper.userMapper">
 
     <!-- 写入数据-->
     <insert id="register" >
@@ -14,7 +14,7 @@
     </insert>
 
     <!-- resultType属性指定结果的类型 -->
-    <select id="login_check"  resultType="com.wmxkb.entity.User" >
+    <select id="login_check"  resultType="com.wmxkb.entity.user"  >
         select userid from user where username =#{param1} and password =#{param2}
     </select>
 </mapper>

@@ -1,15 +1,14 @@
 package com.wmxkb.service;
-import com.wmxkb.entity.User;
-import com.wmxkb.mapper.UserMapper;
+import com.wmxkb.entity.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class userService {
     @Autowired
-    private UserMapper userMapper;
+    private com.wmxkb.mapper.userMapper userMapper;
     // 接口方法
-    public User login_check(String username, String password){
+    public user login_check(String username, String password){
         return this.userMapper.login_check(username, password);
     }
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性相当于映射文件的名称 属性值任意-->
+<!-- 用了Mapper接口代理方法开发-->
+<mapper namespace="com.wmxkb.mapper.shopping_trolleyMapper">
+
+    <!-- 写入数据-->
+    <insert id="add" >
+        insert into shopping_trolley(waterType , price, count , userid) VALUES(#{param1}, #{param2}, #{param3}, #{param4})
+    </insert>
+
+
+
+
+    <select id="selectBywaterType" resultType="com.wmxkb.entity.shopping_trolley" >
+        select * from shopping_trolley where waterType = #{param1}
+    </select>
+
+    <select id="selectByUserid" resultType="com.wmxkb.entity.shopping_trolley" >
+        select * from shopping_trolley where userid = #{param1}
+    </select>
+
+    <delete id="deleteItem">
+        DELETE FROM shopping_trolley WHERE waterType = #{param1} and userid = #{param2}
+    </delete>
+
+
+    <update id="updateCount">
+        UPDATE shopping_trolley SET count=#{param1} where waterType = #{param2} and userid = #{param3}
+    </update>
+</mapper>
