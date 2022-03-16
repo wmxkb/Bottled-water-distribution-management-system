@@ -1,12 +1,15 @@
 package com.wmxkb.controller;
 
 
+import com.alibaba.druid.sql.visitor.functions.Length;
 import com.wmxkb.entity.shopping_trolley;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 // 扫描映射（Mapper）
@@ -55,6 +58,19 @@ public class shopping_trolleyController {
 
     @RequestMapping("/getShopping_Trolley")
     public Object getData(@RequestParam("userid")String userid) {
+        System.out.println(userid);
         return shopping_trolleyService.selectByUserid(userid);
     }
+
+    @RequestMapping("selectAll")
+    public Object selectAll(@RequestParam("userid")String userid){
+        List<shopping_trolley> res = shopping_trolleyService.selectByUserid(userid);
+        double priceSum = 0;
+        for(int i = 0; i < res.size(); i++){
+            priceSum += res.get(i).getPrice() * res.get(i).getCount();
+        }
+        System.out.println(priceSum);
+        return priceSum;
+    }
+
 }
