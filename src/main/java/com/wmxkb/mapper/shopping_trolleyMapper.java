@@ -21,4 +21,5 @@ public interface shopping_trolleyMapper {
 
     public int deleteItem(String waterType, String userid);
 
+    public int deleteAll(String userid);
 }

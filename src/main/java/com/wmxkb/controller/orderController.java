@@ -1,7 +1,7 @@
 package com.wmxkb.controller;
 
 
-import com.wmxkb.entity.order;
+import com.wmxkb.entity.order_main;
 import com.wmxkb.service.orderService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,10 @@ public class orderController {
     public Object addOrderFunction(@RequestParam("orderTime")String orderTime, @RequestParam("orderUserId")String orderUserId,@RequestParam("orderGoods[]")String[] orderGoods,@RequestParam("orderCount[]")String[] orderCount,@RequestParam("orderPrice")Double orderPrice){
 
         System.out.println("测试");
-        int res = orderService.addOrder(orderTime, orderUserId, orderPrice);
+        order_main ordermain = new order_main(0, orderTime, orderUserId, orderPrice);
+        orderService.addOrder(ordermain);
         for(int i = 0; i < orderGoods.length; i++){
-            orderService.addOrderItem(res, orderGoods[i], orderCount[i]);
+            orderService.addOrderItem(ordermain.getOrderNumber(), orderGoods[i], orderCount[i]);
         }
 
 

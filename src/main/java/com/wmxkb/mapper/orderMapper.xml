@@ -4,8 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.wmxkb.mapper.orderMapper">
-    <insert id="addOrder"    keyProperty="orderNumber" >
-        insert into order_main(orderTime, orderUserId , orderPrice) value(#{param1}, #{param2}, #{param3})
+    <insert id="addOrder" parameterType="com.wmxkb.entity.order_main">
+        insert into order_main(orderTime, orderUserId , orderPrice) value(#{orderTime}, #{orderUserId}, #{orderPrice})
+        <selectKey resultType="java.lang.Integer" keyProperty="orderNumber" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
     </insert>
 
     <insert id="addOrderItem">

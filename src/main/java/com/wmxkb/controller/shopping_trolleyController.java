@@ -73,4 +73,10 @@ public class shopping_trolleyController {
         return priceSum;
     }
 
+    @RequestMapping("deleteAll")
+    public Object deleteAll(@RequestParam("userid")String userid){
+        int res = shopping_trolleyService.deleteAll(userid);
+        return res;
+    }
+
 }

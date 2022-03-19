@@ -28,6 +28,7 @@ public class loginController {
 
     @RequestMapping("/register")
     public Object login(@RequestParam("username")String username, @RequestParam("password")String password, @RequestParam("userid")String userid){
+        System.out.println(username + password + userid);
         int result;
         try {
             result = userService.register(username, password, userid);

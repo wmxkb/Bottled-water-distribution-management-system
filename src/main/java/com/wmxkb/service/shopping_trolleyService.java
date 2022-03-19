@@ -31,4 +31,8 @@ public class shopping_trolleyService {
     public int deleteItem(String waterType, String userid){
         return shopping_trolleyMapper.deleteItem(waterType, userid);
     }
+
+    public int deleteAll(String userid){
+        return shopping_trolleyMapper.deleteAll(userid);
+    }
 }

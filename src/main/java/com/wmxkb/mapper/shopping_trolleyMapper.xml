@@ -27,6 +27,9 @@
         DELETE FROM shopping_trolley WHERE waterType = #{param1} and userid = #{param2}
     </delete>
 
+    <delete id="deleteAll">
+        DELETE FROM shopping_trolley WHERE userid = #{param1}
+    </delete>
 
     <update id="updateCount">
         UPDATE shopping_trolley SET count=#{param1} where waterType = #{param2} and userid = #{param3}
