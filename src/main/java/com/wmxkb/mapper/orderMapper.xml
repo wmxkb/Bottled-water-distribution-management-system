@@ -15,6 +15,17 @@
         insert into order_item(orderNumber, orderGoods, orderCount) values(#{param1}, #{param2}, #{param3})
     </insert>
 
+    <select id="getOrderMain" resultType="com.wmxkb.entity.order_main">
+        select * from order_main where orderUserId = #{param1}
+    </select>
+
+    <select id="getOrderItemByNumber" resultType="map">
+
+        SELECT order_item.orderGoods, commodity.commodityPrice , order_item.orderCount FROM order_item, commodity WHERE order_item.orderGoods = commodity.commodityName AND order_item.orderNumber = #{param1}
+    </select>
+<!--    select *-->
+<!--    from  order_item-->
+<!--    where orderNumber = #{param1}-->
 
 
 </mapper>
