@@ -12,8 +12,8 @@ public class shopping_trolleyService {
     @Autowired
     private com.wmxkb.mapper.shopping_trolleyMapper shopping_trolleyMapper;
 
-    public int add(String waterType, Double price, Integer count , String userid){
-        return shopping_trolleyMapper.add(waterType, price, count, userid);
+    public int add(String waterType, Double price, Integer count , String userid, String location, Integer floor){
+        return shopping_trolleyMapper.add(waterType, price, count, userid, location, floor);
     }
 
     public shopping_trolley selectBywaterType(String waterType){

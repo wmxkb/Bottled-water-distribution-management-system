@@ -13,7 +13,7 @@ public interface orderMapper {
 
     public int addOrder(order_main order_main);
 
-    public int addOrderItem(Integer orderNumber, String orderGoods, String orderCount);
+    public int addOrderItem(Integer orderNumber, String orderGoods, String orderCount, String orderLocation, Integer orderFloor);
 
     public List<order_main> getOrderMain(String userid);
 

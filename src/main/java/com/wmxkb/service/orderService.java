@@ -20,8 +20,8 @@ public class orderService {
         return orderMapper.addOrder(order_main);
     }
 
-    public int addOrderItem(Integer orderNumber, String orderGoods, String orderCount){
-        return orderMapper.addOrderItem(orderNumber,orderGoods,orderCount);
+    public int addOrderItem(Integer orderNumber, String orderGoods, String orderCount, String orderLocation, Integer orderFloor){
+        return orderMapper.addOrderItem(orderNumber,orderGoods,orderCount, orderLocation, orderFloor);
     }
 
     public List<order_main> getOrderMain(String userid){

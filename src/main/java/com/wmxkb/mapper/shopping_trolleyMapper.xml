@@ -9,7 +9,7 @@
 
     <!-- 写入数据-->
     <insert id="add" >
-        insert into shopping_trolley(waterType , price, count , userid) VALUES(#{param1}, #{param2}, #{param3}, #{param4})
+        insert into shopping_trolley(waterType , price, count , userid, location, floor) VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
     </insert>
 
 

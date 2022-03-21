@@ -25,13 +25,13 @@ public class orderController {
     private orderService orderService;
 
     @RequestMapping("/addOrder")
-    public Object addOrderFunction(@RequestParam("orderTime")String orderTime, @RequestParam("orderUserId")String orderUserId,@RequestParam("orderGoods[]")String[] orderGoods,@RequestParam("orderCount[]")String[] orderCount,@RequestParam("orderPrice")Double orderPrice){
+    public Object addOrderFunction(@RequestParam("orderTime")String orderTime, @RequestParam("orderUserId")String orderUserId,@RequestParam("orderGoods[]")String[] orderGoods,@RequestParam("orderCount[]")String[] orderCount,@RequestParam("orderPrice")Double orderPrice, @RequestParam("orderLocation[]")String[] orderLocation, @RequestParam("orderFloor[]")String[] orderFloor){
 
-        System.out.println("测试");
+        System.out.println(orderFloor);
         order_main ordermain = new order_main(0, orderTime, orderUserId, orderPrice);
         orderService.addOrder(ordermain);
         for(int i = 0; i < orderGoods.length; i++){
-            orderService.addOrderItem(ordermain.getOrderNumber(), orderGoods[i], orderCount[i]);
+            orderService.addOrderItem(ordermain.getOrderNumber(), orderGoods[i], orderCount[i], orderLocation[i], Integer.parseInt(orderFloor[i]));
         }
 
 

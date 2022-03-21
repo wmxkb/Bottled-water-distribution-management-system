@@ -12,7 +12,7 @@
     </insert>
 
     <insert id="addOrderItem">
-        insert into order_item(orderNumber, orderGoods, orderCount) values(#{param1}, #{param2}, #{param3})
+        insert into order_item(orderNumber, orderGoods, orderCount, orderLocation, orderFloor) values(#{param1}, #{param2}, #{param3}, #{param4}, #{param5})
     </insert>
 
     <select id="getOrderMain" resultType="com.wmxkb.entity.order_main">

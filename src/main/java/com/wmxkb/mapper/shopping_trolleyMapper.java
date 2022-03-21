@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface shopping_trolleyMapper {
     // 方法名要和xml文件id一致
-    public int add(String waterType, Double price, Integer count , String userid);
+    public int add(String waterType, Double price, Integer count , String userid, String location, Integer floor);
 
     public shopping_trolley selectBywaterType(String waterType);
 

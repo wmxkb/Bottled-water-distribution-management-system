@@ -29,7 +29,7 @@ public class shopping_trolleyController {
 
 
         if(isExist == null){
-            shopping_trolleyService.add(itemInfos[0], Double.parseDouble(itemInfos[1]), Integer.parseInt(itemInfos[2]), itemInfos[3]);
+            shopping_trolleyService.add(itemInfos[0], Double.parseDouble(itemInfos[1]), Integer.parseInt(itemInfos[2]), itemInfos[3], itemInfos[4], Integer.parseInt(itemInfos[5]));
         }else{
             shopping_trolleyService.updateCount(isExist.getCount() + 1, itemInfos[0], itemInfos[3]);
         }
