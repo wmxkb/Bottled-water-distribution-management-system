@@ -19,6 +19,10 @@ public class commodity_infosService {
 
     }
 
+    public int selectSingle(String location, int floor, int type){
+        return  this.water_infosMapper.selectSingle(location, floor, type);
+    }
+
     public List<Map<String, Object>> selectBylocation(String location){
         return this.water_infosMapper.selectBylocation(location);
     }

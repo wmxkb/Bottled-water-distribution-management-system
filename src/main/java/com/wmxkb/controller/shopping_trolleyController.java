@@ -55,6 +55,19 @@ public class shopping_trolleyController {
         return 0;
     }
 
+    @RequestMapping("/reduceSelectItem")
+    public Object reduceSelectItem(@RequestParam("orderGoods[]")String[] orderGoods, @RequestParam("orderUserId")String orderUserId, @RequestParam("orderLocation[]")String[] orderLocation, @RequestParam("orderFloor[]")String[] orderFloor){
+        int i = 0;
+        for(String ordergoods:orderGoods){
+            shopping_trolleyService.deleteItem(ordergoods, orderUserId, orderLocation[i], Integer.parseInt(orderFloor[i]));
+
+            i++;
+        }
+        i = 0;
+
+        return 0;
+    }
+
 
     @RequestMapping("/getShopping_Trolley")
     public Object getData(@RequestParam("userid")String userid) {

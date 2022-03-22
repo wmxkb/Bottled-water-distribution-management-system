@@ -46,8 +46,14 @@ public class commodity_InfosController {
 
     @RequestMapping("/reduceCommodityCount")
     public Object reduceCommodityCount(@RequestParam("location")String location, @RequestParam("floor")Integer floor, @RequestParam("commodityType")Integer commodityType){
-        commodityinfosService.reduceCommodityCount(location, floor, commodityType);
-        return 0;
+        int res;
+        if(commodityinfosService.selectSingle(location, floor, commodityType) > 0) {
+            commodityinfosService.reduceCommodityCount(location, floor, commodityType);
+            res = 0;
+        }else{
+            res = 1;
+        }
+        return res;
     }
 
     @RequestMapping("/addCommodityCount")

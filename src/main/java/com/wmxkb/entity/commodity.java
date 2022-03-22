@@ -3,6 +3,7 @@ package com.wmxkb.entity;
 public class commodity {
     private String commodityName;
     private Double commodityPrice;
+    private Integer commodityType;
 
     public commodity(){}
 
@@ -12,5 +13,9 @@ public class commodity {
 
     public Double getCommodityPrice() {
         return commodityPrice;
+    }
+
+    public Integer getCommodityType() {
+        return commodityType;
     }
 }

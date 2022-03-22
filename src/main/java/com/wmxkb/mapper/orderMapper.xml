@@ -21,7 +21,7 @@
 
     <select id="getOrderItemByNumber" resultType="map">
 
-        SELECT order_item.orderGoods, commodity.commodityPrice , order_item.orderCount FROM order_item, commodity WHERE order_item.orderGoods = commodity.commodityName AND order_item.orderNumber = #{param1}
+        SELECT commodity.commodityType , order_item.orderGoods, commodity.commodityPrice , order_item.orderCount FROM order_item, commodity WHERE order_item.orderGoods = commodity.commodityName AND order_item.orderNumber = #{param1}
     </select>
 <!--    select *-->
 <!--    from  order_item-->

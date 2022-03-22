@@ -28,6 +28,10 @@
         SET t.commodityCount = t.commodityCount - 1
         WHERE t.location = #{param1} AND t.floor = #{param2} AND t.commodityType = #{param3};
     </update>
+    <select id="selectSingle"  resultType="int" >
+        select commodityCount from commodity_infos where location =#{param1} and floor =#{param2} and commodityType = #{param3}
+    </select>
+
 
     <update id="addCommodityCount">
         UPDATE commodity_infos t

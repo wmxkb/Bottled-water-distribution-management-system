@@ -14,6 +14,8 @@ public interface commodity_infosMapper {
     // 方法名要和xml文件id一致
     public commodity_infos selectBylocationandfloor(String location , int floor);
 
+    public int selectSingle(String location, int floor, int type);
+
     public List<Map<String, Object>> selectBylocation(String location);
 
     public int reduceCommodityCount(String location, Integer floor, Integer commodityType);
