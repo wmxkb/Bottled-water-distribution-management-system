@@ -15,11 +15,13 @@ public interface shopping_trolleyMapper {
 
     public shopping_trolley selectBywaterType(String waterType);
 
-    public int updateCount(Integer count, String waterType, String userid);
+    public shopping_trolley selectByMainMessage(String waterType, String userid, String location, Integer floor);
+
+    public int updateCount(Integer count, String waterType, String userid, String location, Integer floor);
 
     public List<shopping_trolley> selectByUserid(String userid);
 
-    public int deleteItem(String waterType, String userid);
+    public int deleteItem(String waterType, String userid, String location, Integer floor);
 
     public int deleteAll(String userid);
 }

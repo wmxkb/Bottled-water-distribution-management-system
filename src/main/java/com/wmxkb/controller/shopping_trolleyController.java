@@ -25,13 +25,13 @@ public class shopping_trolleyController {
             System.out.println(itemInfo);
         }
 
-        shopping_trolley isExist = shopping_trolleyService.selectBywaterType(itemInfos[0]);
+        shopping_trolley isExist = shopping_trolleyService.selectByMainMessage(itemInfos[0], itemInfos[3], itemInfos[4], Integer.parseInt(itemInfos[5]));
 
 
         if(isExist == null){
             shopping_trolleyService.add(itemInfos[0], Double.parseDouble(itemInfos[1]), Integer.parseInt(itemInfos[2]), itemInfos[3], itemInfos[4], Integer.parseInt(itemInfos[5]));
         }else{
-            shopping_trolleyService.updateCount(isExist.getCount() + 1, itemInfos[0], itemInfos[3]);
+            shopping_trolleyService.updateCount(isExist.getCount() + 1, itemInfos[0], itemInfos[3], itemInfos[4], Integer.parseInt(itemInfos[5]));
         }
 
 
@@ -41,9 +41,9 @@ public class shopping_trolleyController {
     @RequestMapping("/reduce")
     public Object reduceCount(@RequestParam("itemInfos[]")String[] itemInfos) {
         if(Integer.parseInt(itemInfos[1]) == 1){
-            shopping_trolleyService.deleteItem(itemInfos[0], itemInfos[3]);
+            shopping_trolleyService.deleteItem(itemInfos[0], itemInfos[3], itemInfos[4], Integer.parseInt(itemInfos[5]));
         }else{
-            shopping_trolleyService.updateCount( Integer.parseInt(itemInfos[1]) - 1, itemInfos[0], itemInfos[3]);
+            shopping_trolleyService.updateCount( Integer.parseInt(itemInfos[1]) - 1, itemInfos[0], itemInfos[3], itemInfos[4], Integer.parseInt(itemInfos[5]));
         }
 
         return 0;
@@ -51,7 +51,7 @@ public class shopping_trolleyController {
 
     @RequestMapping("/reduceItem")
     public Object reduceItem(@RequestParam("itemInfos[]")String[] itemInfos) {
-        shopping_trolleyService.deleteItem(itemInfos[0], itemInfos[3]);
+        shopping_trolleyService.deleteItem(itemInfos[0], itemInfos[3], itemInfos[4], Integer.parseInt(itemInfos[5]));
         return 0;
     }
 

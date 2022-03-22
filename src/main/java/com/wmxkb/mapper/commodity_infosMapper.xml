@@ -23,4 +23,15 @@
         select  commodity_infos.commodityName, commodity_infos.commodityType,  commodity.commodityPrice , commodity_infos.commodityCount, commodity_infos.floor  from commodity_infos, commodity where commodity.commodityName = commodity_infos.commodityName  AND commodity_infos.location = #{param1}
     </select>
 
+    <update id="reduceCommodityCount" >
+        UPDATE commodity_infos t
+        SET t.commodityCount = t.commodityCount - 1
+        WHERE t.location = #{param1} AND t.floor = #{param2} AND t.commodityType = #{param3};
+    </update>
+
+    <update id="addCommodityCount">
+        UPDATE commodity_infos t
+        SET t.commodityCount = t.commodityCount + #{param4}
+        WHERE t.location = #{param1} AND t.floor = #{param2} AND t.commodityType = #{param3};
+    </update>
 </mapper>

@@ -20,16 +20,20 @@ public class shopping_trolleyService {
         return shopping_trolleyMapper.selectBywaterType(waterType);
     }
 
-    public int updateCount(Integer count, String waterType, String userid){
-        return  shopping_trolleyMapper.updateCount(count, waterType, userid);
+    public shopping_trolley selectByMainMessage(String waterType, String userid, String location, Integer floor){
+        return  shopping_trolleyMapper.selectByMainMessage(waterType, userid, location, floor);
+    }
+
+    public int updateCount(Integer count, String waterType, String userid, String location, Integer floor){
+        return  shopping_trolleyMapper.updateCount(count, waterType, userid, location, floor);
     }
 
     public List<shopping_trolley> selectByUserid(String userid){
         return shopping_trolleyMapper.selectByUserid(userid);
     }
 
-    public int deleteItem(String waterType, String userid){
-        return shopping_trolleyMapper.deleteItem(waterType, userid);
+    public int deleteItem(String waterType, String userid, String location, Integer floor){
+        return shopping_trolleyMapper.deleteItem(waterType, userid, location, floor);
     }
 
     public int deleteAll(String userid){

@@ -19,12 +19,16 @@
         select * from shopping_trolley where waterType = #{param1}
     </select>
 
+    <select id="selectByMainMessage" resultType="com.wmxkb.entity.shopping_trolley">
+        select  * from shopping_trolley where waterType = #{param1} AND userid = #{param2} AND location = #{param3} AND floor = #{param4}
+    </select>
+
     <select id="selectByUserid" resultType="com.wmxkb.entity.shopping_trolley" >
         select * from shopping_trolley where userid = #{param1}
     </select>
 
     <delete id="deleteItem">
-        DELETE FROM shopping_trolley WHERE waterType = #{param1} and userid = #{param2}
+        DELETE FROM shopping_trolley WHERE waterType = #{param1} and userid = #{param2} and location = #{param3} and floor = #{param4}
     </delete>
 
     <delete id="deleteAll">
@@ -32,6 +36,6 @@
     </delete>
 
     <update id="updateCount">
-        UPDATE shopping_trolley SET count=#{param1} where waterType = #{param2} and userid = #{param3}
+        UPDATE shopping_trolley SET count=#{param1} where waterType = #{param2} and userid = #{param3} and location = #{param4} and floor = #{param5}
     </update>
 </mapper>

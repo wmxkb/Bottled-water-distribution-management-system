@@ -15,4 +15,8 @@ public interface commodity_infosMapper {
     public commodity_infos selectBylocationandfloor(String location , int floor);
 
     public List<Map<String, Object>> selectBylocation(String location);
+
+    public int reduceCommodityCount(String location, Integer floor, Integer commodityType);
+
+    public int addCommodityCount(String location, Integer floor, Integer commodityType, Integer Count);
 }

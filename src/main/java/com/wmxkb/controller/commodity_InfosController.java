@@ -42,4 +42,17 @@ public class commodity_InfosController {
         System.out.println(resultW);
         return resultW;
     }
+
+
+    @RequestMapping("/reduceCommodityCount")
+    public Object reduceCommodityCount(@RequestParam("location")String location, @RequestParam("floor")Integer floor, @RequestParam("commodityType")Integer commodityType){
+        commodityinfosService.reduceCommodityCount(location, floor, commodityType);
+        return 0;
+    }
+
+    @RequestMapping("/addCommodityCount")
+    public Object addCommodityCount(@RequestParam("location")String location, @RequestParam("floor")Integer floor, @RequestParam("commodityType")Integer commodityType, @RequestParam("Count")Integer Count){
+        commodityinfosService.addCommodityCount(location, floor, commodityType, Count);
+        return 0;
+    }
 }

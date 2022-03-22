@@ -22,4 +22,12 @@ public class commodity_infosService {
     public List<Map<String, Object>> selectBylocation(String location){
         return this.water_infosMapper.selectBylocation(location);
     }
+
+    public int reduceCommodityCount(String location, Integer floor, Integer commodityType){
+        return this.water_infosMapper.reduceCommodityCount(location, floor, commodityType);
+    }
+
+    public int addCommodityCount(String location, Integer floor, Integer commodityType, Integer Count){
+        return this.water_infosMapper.addCommodityCount(location, floor, commodityType, Count);
+    }
 }
