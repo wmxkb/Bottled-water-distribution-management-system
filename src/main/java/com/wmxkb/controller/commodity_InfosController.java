@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -33,14 +34,35 @@ public class commodity_InfosController {
 
     @RequestMapping("/getCommodity_infos")
     public Object getWater_infos(@RequestParam("location")String location){
-         System.out.println(location);
-         System.out.println(commodityinfosService.selectBylocation(location));
+//         System.out.println(location);
+//         System.out.println(commodityinfosService.selectBylocation(location));
 
         List<Map<String, Object>> resultW = commodityinfosService.selectBylocation(location);
 //        String result = "{'bigWater':'" + resultW.getBigWater() + "' , 'smallWater': '" + resultW.getSmallWater() +
 //                "'}";
-        System.out.println(resultW);
+//        System.out.println(resultW);
         return resultW;
+    }
+
+    @RequestMapping("/showCharts")
+    public Object showCharts(@RequestParam("location")String location){
+        List<commodity_infos> res = commodityinfosService.showChartsByLocation(location);
+        List<int[]> res1 = new ArrayList<>();
+        int[] data1 = {0, 0, 0, 0, 0, 0};
+        int[] data2 = {0, 0, 0, 0, 0, 0};
+        for (int i = 0; i < res.size(); i++) {
+//            System.out.println(res.get(i).getCommodityType());
+            if(res.get(i).getCommodityType() == 1){
+                data1[res.get(i).getFloor() - 1] = res.get(i).getCommodityCount();
+            }
+            if(res.get(i).getCommodityType() == 2){
+                data2[res.get(i).getFloor() - 1] = res.get(i).getCommodityCount();
+            }
+        }
+        res1.add(0, data1);
+        res1.add(1, data2);
+//        System.out.println(res1);
+        return res1;
     }
 
 

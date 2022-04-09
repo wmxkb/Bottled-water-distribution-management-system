@@ -18,6 +18,8 @@ public interface commodity_infosMapper {
 
     public List<Map<String, Object>> selectBylocation(String location);
 
+    public List<commodity_infos> showChartsByLocation(String location);
+
     public int reduceCommodityCount(String location, Integer floor, Integer commodityType);
 
     public int addCommodityCount(String location, Integer floor, Integer commodityType, Integer Count);

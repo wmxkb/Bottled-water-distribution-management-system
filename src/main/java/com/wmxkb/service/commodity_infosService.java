@@ -27,6 +27,10 @@ public class commodity_infosService {
         return this.water_infosMapper.selectBylocation(location);
     }
 
+    public List<commodity_infos> showChartsByLocation(String location){
+        return this.water_infosMapper.showChartsByLocation(location);
+    }
+
     public int reduceCommodityCount(String location, Integer floor, Integer commodityType){
         return this.water_infosMapper.reduceCommodityCount(location, floor, commodityType);
     }

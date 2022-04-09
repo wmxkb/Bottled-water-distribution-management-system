@@ -22,6 +22,10 @@
     <select id="selectBylocation" resultType="map">
         select  commodity_infos.commodityName, commodity_infos.commodityType,  commodity.commodityPrice , commodity_infos.commodityCount, commodity_infos.floor  from commodity_infos, commodity where commodity.commodityName = commodity_infos.commodityName  AND commodity_infos.location = #{param1}
     </select>
+    
+    <select id="showChartsByLocation" resultType="com.wmxkb.entity.commodity_infos">
+        select * from commodity_infos where location =#{param1}
+    </select>
 
     <update id="reduceCommodityCount" >
         UPDATE commodity_infos t
