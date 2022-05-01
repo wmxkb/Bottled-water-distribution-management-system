@@ -41,4 +41,11 @@ public class loginController {
         return result;
     }
 
+//    @RequestMapping("/searchUser")
+//    public Object searchUser(@RequestParam("username")String username){
+//        user res = userService.searchUser(username);
+//        System.out.println(res);
+//        return res;
+//    }
+
 }

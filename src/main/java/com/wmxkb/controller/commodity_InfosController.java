@@ -65,6 +65,21 @@ public class commodity_InfosController {
         return res1;
     }
 
+    @RequestMapping("/showBlocks")
+    public Object showBlocks(){
+        String location = "";
+        int[] cnt = {0,0,0,0,0,0,0,0,0,0,0,0};
+        for(int i = 1; i <= 12; i++) {
+            location = "ld-" + i;
+            List<commodity_infos> res = commodityinfosService.showChartsByLocation(location);
+            for (int j = 0; j < res.size(); j++) {
+                    cnt[i - 1] += res.get(j).getCommodityCount();
+            }
+        }
+        System.out.println("233");
+        return cnt;
+    }
+
 
     @RequestMapping("/reduceCommodityCount")
     public Object reduceCommodityCount(@RequestParam("location")String location, @RequestParam("floor")Integer floor, @RequestParam("commodityType")Integer commodityType){

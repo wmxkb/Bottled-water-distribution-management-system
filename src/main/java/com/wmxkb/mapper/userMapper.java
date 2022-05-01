@@ -9,5 +9,5 @@ public interface userMapper {
     // 方法名要和xml文件id一致
     public user login_check(String username, String password);
     public int register(String username, String password, String userid);
-
+    public user searchUser(String username);
 }

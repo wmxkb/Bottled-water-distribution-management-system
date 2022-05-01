@@ -27,5 +27,8 @@
 <!--    from  order_item-->
 <!--    where orderNumber = #{param1}-->
 
+    <select id="getByUser" resultType="com.wmxkb.entity.order_main">
+        select * from order_main where orderUserId = #{param1}
+    </select>
 
 </mapper>

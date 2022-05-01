@@ -17,5 +17,9 @@
     <select id="login_check"  resultType="com.wmxkb.entity.user"  >
         select userid from user where username =#{param1} and password =#{param2}
     </select>
+
+    <select id="searchUser" resultType="com.wmxkb.entity.user">
+        select * from user where username = #{param1}
+    </select>
 </mapper>
 

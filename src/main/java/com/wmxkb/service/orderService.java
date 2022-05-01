@@ -31,4 +31,8 @@ public class orderService {
         return orderMapper.getOrderItemByNumber(orderNumber);
     }
 
+    public List<order_main> getByUser(String username){
+        return orderMapper.getByUser(username);
+    }
+
 }

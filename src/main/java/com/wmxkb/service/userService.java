@@ -16,4 +16,8 @@ public class userService {
         return  this.userMapper.register(username, password, userid);
     }
 
+    public user searchUser(String username){
+        return this.userMapper.searchUser(username);
+    }
+
 }
