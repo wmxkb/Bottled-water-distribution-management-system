@@ -13,4 +13,8 @@ public class admin_userService {
     public admin_user checkAdminUser(String userid, String keyword){
         return admin_userMapper.checkAdminUser(userid, keyword);
     }
+
+    public int addAdmin(String userid, String keyword, String phoneNumber){
+        return admin_userMapper.addAdmin(userid, keyword, phoneNumber);
+    }
 }

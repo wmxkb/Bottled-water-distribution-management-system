@@ -27,4 +27,11 @@ public class admin_userController {
         }
 
     }
+
+    @RequestMapping("/addAdmin")
+    public Object addAdmin(@RequestParam("userid")String userid, @RequestParam("keyword")String keyword , @RequestParam("phoneNumber")String phoneNumber){
+        int res = admin_userService.addAdmin(userid, keyword, phoneNumber);
+        return  res;
+    }
+//    addAdmin
 }

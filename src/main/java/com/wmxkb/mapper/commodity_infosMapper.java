@@ -23,4 +23,6 @@ public interface commodity_infosMapper {
     public int reduceCommodityCount(String location, Integer floor, Integer commodityType);
 
     public int addCommodityCount(String location, Integer floor, Integer commodityType, Integer Count);
+
+    public int addWater(String location, Integer floor);
 }

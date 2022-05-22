@@ -8,4 +8,8 @@
         select * from admin_user where userid = #{param1} and keyword = #{param2}
     </select>
 
+    <insert id="addAdmin">
+        insert into admin_user(userid, keyword, phoneNumber) values(#{param1}, #{param2}, #{param3})
+    </insert>
+
 </mapper>

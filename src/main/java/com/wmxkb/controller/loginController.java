@@ -17,21 +17,27 @@ public class loginController {
         user result = userService.login_check(userinfos[0], userinfos[1]);
         // 查询成功（账号密码正确）
         if(result != null){
-            System.out.println(userinfos[0] + "login success");
+            System.out.println(userinfos[0] + " 登录成功");
             return 0;
             // 查询失败（null）
         }else{
-            System.out.println(userinfos[0] + "login false");
+            System.out.println(userinfos[0] + " 登录失败");
             return 1;
         }
     }
 
     @RequestMapping("/register")
-    public Object login(@RequestParam("username")String username, @RequestParam("password")String password, @RequestParam("userid")String userid){
-        System.out.println(username + password + userid);
+    public Object login(
+            @RequestParam("username")String username,
+            @RequestParam("password")String password,
+            @RequestParam("userid")String userid,
+            @RequestParam("name")String name,
+            @RequestParam("phone")String phone
+    ){
+        System.out.println(username + password + userid + name + phone);
         int result;
         try {
-            result = userService.register(username, password, userid);
+            result = userService.register(username, password, userid, name, phone);
             System.out.println(username + "register success");
             result = 0;
         }catch (Exception e){
@@ -47,5 +53,13 @@ public class loginController {
 //        System.out.println(res);
 //        return res;
 //    }
+    @RequestMapping("/setPassword")
+    public Object setPassword(@RequestParam("password")String password, @RequestParam("username")String username){
+        System.out.println(password + ' ' + username);
+        int res = userService.setPassword(password, username);
+        System.out.println(res);
+        return res;
+    }
+
 
 }

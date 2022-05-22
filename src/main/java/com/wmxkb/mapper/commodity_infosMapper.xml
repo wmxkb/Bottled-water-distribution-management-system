@@ -42,4 +42,10 @@
         SET t.commodityCount = t.commodityCount + #{param4}
         WHERE t.location = #{param1} AND t.floor = #{param2} AND t.commodityType = #{param3};
     </update>
+
+    <update id="addWater">
+        UPDATE commodity_infos t
+        SET t.commodityCount = 8
+        WHERE t.location = #{param1} AND t.floor = #{param2};
+    </update>
 </mapper>

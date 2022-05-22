@@ -19,10 +19,19 @@
         select * from order_main where orderUserId = #{param1}
     </select>
 
+    <select id="getAllOrderMain" resultType="com.wmxkb.entity.order_main">
+        select * from order_main
+    </select>
+
     <select id="getOrderItemByNumber" resultType="map">
 
         SELECT commodity.commodityType , order_item.orderGoods, commodity.commodityPrice , order_item.orderCount FROM order_item, commodity WHERE order_item.orderGoods = commodity.commodityName AND order_item.orderNumber = #{param1}
     </select>
+
+    <select id="getOrderItem" resultType="com.wmxkb.entity.order_main">
+        SELECT * FROM order_item where orderNumber = #{param1}
+    </select>
+
 <!--    select *-->
 <!--    from  order_item-->
 <!--    where orderNumber = #{param1}-->

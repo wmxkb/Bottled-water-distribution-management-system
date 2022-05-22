@@ -7,4 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface admin_userMapper {
 
     public admin_user checkAdminUser(String userid, String keyword);
+
+    public int addAdmin(String userid, String keyword, String phoneNumber);
+
 }

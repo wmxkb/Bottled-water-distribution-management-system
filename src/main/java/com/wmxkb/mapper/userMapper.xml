@@ -10,7 +10,7 @@
 
     <!-- 写入数据-->
     <insert id="register" >
-        insert into user(username , password, userid)VALUES(#{param1}, #{param2}, #{param3})
+        insert into user(username , password, userid, name, phone)VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5})
     </insert>
 
     <!-- resultType属性指定结果的类型 -->
@@ -21,5 +21,13 @@
     <select id="searchUser" resultType="com.wmxkb.entity.user">
         select * from user where username = #{param1}
     </select>
+
+    <select id="getUserInfosBySno" resultType="com.wmxkb.entity.user">
+        select * from user where userid = #{param1}
+    </select>
+
+    <update id="setPassword">
+        UPDATE user SET password=#{param1} where username=#{param2}
+    </update>
 </mapper>
 

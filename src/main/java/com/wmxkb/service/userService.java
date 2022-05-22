@@ -12,12 +12,19 @@ public class userService {
         return this.userMapper.login_check(username, password);
     }
 
-    public int register(String username, String password, String userid){
-        return  this.userMapper.register(username, password, userid);
+    public int register(String username, String password, String userid, String name, String phone){
+        return  this.userMapper.register(username, password, userid, name, phone);
     }
 
     public user searchUser(String username){
         return this.userMapper.searchUser(username);
     }
 
+    public user getUserInfosBySno(String userid){
+        return this.userMapper.getUserInfosBySno(userid);
+    }
+
+    public int setPassword(String password, String username){
+        return this.userMapper.setPassword(password, username);
+    }
 }

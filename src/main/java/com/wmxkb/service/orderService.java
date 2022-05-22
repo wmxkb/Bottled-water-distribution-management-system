@@ -27,8 +27,17 @@ public class orderService {
     public List<order_main> getOrderMain(String userid){
         return orderMapper.getOrderMain(userid);
     }
+
+    public List<order_main> getAllOrderMain(){
+        return orderMapper.getAllOrderMain();
+    }
+
     public List<Map<String, Object>> getOrderItemByNumber(String orderNumber){
         return orderMapper.getOrderItemByNumber(orderNumber);
+    }
+
+    public List<order_item> getOrderItem(String orderNumber){
+        return orderMapper.getOrderItem(orderNumber);
     }
 
     public List<order_main> getByUser(String username){

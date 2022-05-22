@@ -38,4 +38,7 @@ public class commodity_infosService {
     public int addCommodityCount(String location, Integer floor, Integer commodityType, Integer Count){
         return this.water_infosMapper.addCommodityCount(location, floor, commodityType, Count);
     }
+    public int addWater(String location, Integer floor){
+        return this.water_infosMapper.addWater(location, floor);
+    }
 }

@@ -48,6 +48,14 @@ public class orderController {
         return res;
     }
 
+    @RequestMapping("getAllOrderMain")
+    public Object getAllOrderMain(){
+
+        List<order_main> res = orderService.getAllOrderMain();
+        System.out.println(res);
+        return res;
+    }
+
     @RequestMapping("getOrderItemByNumber")
     public Object getOrderItemByNumber(@RequestParam("orderNumber")String orderNumber){
         List<Map<String, Object>> res = orderService.getOrderItemByNumber(orderNumber);
@@ -63,5 +71,17 @@ public class orderController {
         System.out.println(res);
         return res;
     }
+//    bug
+    @RequestMapping("getOrderItem")
+    public Object getOrderItemNew(@RequestParam("orderNumber")String orderNumber){
+        List<order_item> res = orderService.getOrderItem(orderNumber);
+        System.out.println(res);
+        return res;
+    }
 
+
+    @RequestMapping("getOrderCount")
+    public Object getOrderCount(@RequestParam("username")String username){
+        return orderService.getOrderMain(username).size();
+    }
 }

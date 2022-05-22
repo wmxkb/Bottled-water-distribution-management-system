@@ -98,4 +98,18 @@ public class commodity_InfosController {
         commodityinfosService.addCommodityCount(location, floor, commodityType, Count);
         return 0;
     }
+
+    @RequestMapping("/addWater")
+    public Object addWater(@RequestParam("location")String location, @RequestParam("floor")Integer floor){
+
+        if(floor == 0){
+            for(int i = 1; i <= 6; i++){
+                commodityinfosService.addWater(location, i);
+            }
+        }else{
+            commodityinfosService.addWater(location, floor);
+        }
+
+        return 0;
+    }
 }

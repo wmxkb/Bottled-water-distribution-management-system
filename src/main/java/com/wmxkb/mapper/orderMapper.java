@@ -17,7 +17,11 @@ public interface orderMapper {
 
     public List<order_main> getOrderMain(String userid);
 
+    public List<order_main> getAllOrderMain();
+
     public List<Map<String, Object>> getOrderItemByNumber(String orderNumber);
+
+    public List<order_item> getOrderItem(String orderNumber);
 
     public List<order_main> getByUser(String username);
 }

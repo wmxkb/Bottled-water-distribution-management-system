@@ -46,4 +46,15 @@ public class searchUser {
         System.out.println(mapres);
         return mapres;
     }
+
+    @RequestMapping("/getUserInfosBySno")
+    public Object getUserInfosBySno(@RequestParam("userid")String userid){
+        user res = userService.getUserInfosBySno(userid);
+        if(res != null){
+            return res;
+        }else{
+            System.out.println("getUserInfosBySno 出错");
+            return 1;
+        }
+    }
 }
